@@ -12,7 +12,8 @@ public class RandomWalk{
         walker.fill();
         int walkerX = walker.getX();
         int walkerY = walker.getY();
-        while(((walkerX < 200) && (walkerX > 50)) && ((walkerY < 200) && (walkerY > 50))){
+        int distance = (int)(Math.sqrt(Math.pow((walkerX - 150),2))) + (int)(Math.sqrt(Math.pow((walkerY - 150),2)));
+        while(distance <= 150){
             int stepCount = 0;
             int randomX = (int)((Math.random()*20) - 10);
             int randomY = (int)((Math.random()*20) - 10);
@@ -20,6 +21,7 @@ public class RandomWalk{
             stepCount += 1;
             try { Thread.sleep(100);}
             catch(Exception ex) {};
+            distance = (int)(Math.sqrt(Math.pow((walkerX - 150),2))) + (int)(Math.sqrt(Math.pow((walkerY - 150),2)));
             walkerX = walker.getX();
             walkerY = walker.getY();
         }
