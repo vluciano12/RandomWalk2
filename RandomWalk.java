@@ -1,7 +1,27 @@
 public class RandomWalk{
     public static void main(String[] args) {
-        
-        Ellipse bounds = new Ellipse(150, 150, 200, 200);
+        Rectangle field = new Rectangle(0,0,300,300);
+        field.setColor(Color.GREEN);
+        field.draw();
+        field.fill();
+        Ellipse bounds = new Ellipse(50, 50, 200, 200);
         bounds.draw();
+        Ellipse walker = new Ellipse(150, 150, 10, 10);
+        walker.setColor(Color.RED);
+        walker.draw();
+        walker.fill();
+        int walkerX = walker.getX();
+        int walkerY = walker.getY();
+        while(((walkerX < 200) && (walkerX > 50)) && ((walkerY < 200) && (walkerY > 50))){
+            int stepCount = 0;
+            int randomX = (int)((Math.random()*20) - 10);
+            int randomY = (int)((Math.random()*20) - 10);
+            walker.translate(randomX, randomY);
+            stepCount += 1;
+            try { Thread.sleep(100);}
+            catch(Exception ex) {};
+            walkerX = walker.getX();
+            walkerY = walker.getY();
+        }
     }
 }
