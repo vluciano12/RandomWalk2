@@ -13,8 +13,8 @@ public class RandomWalk{
         int walkerX = walker.getX();
         int walkerY = walker.getY();
         int distance = (int)(Math.sqrt(Math.pow((walkerX - 150),2))) + (int)(Math.sqrt(Math.pow((walkerY - 150),2)));
+        int stepCount = 0;
         while(distance <= 150){
-            int stepCount = 0;
             int randomX = (int)((Math.random()*20) - 10);
             int randomY = (int)((Math.random()*20) - 10);
             walker.translate(randomX, randomY);
@@ -25,5 +25,6 @@ public class RandomWalk{
             walkerX = walker.getX();
             walkerY = walker.getY();
         }
+        System.out.println("Steps to escape: " + stepCount);
     }
 }
